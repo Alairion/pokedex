@@ -303,6 +303,9 @@ module Pokedex
     def refresh
       @list.each_with_index do |item, i|
         item.bitmap.clear
+      end
+      @list.each_with_index do |item, i|
+        break if (@global_index + i) >= @zone_infos.size
         item.bitmap.draw_text(0, 0, 245, 40, @zone_infos[@global_index + i].name, 1)
       end
     
